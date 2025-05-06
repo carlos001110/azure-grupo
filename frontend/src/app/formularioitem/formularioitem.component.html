@@ -1,0 +1,102 @@
+<div class="container-fluid py-5">
+  <h3 class="text-center text-primary fw-bold mb-4">📚 Nuevo Artículo</h3>
+
+  <form #formRef="ngForm" (ngSubmit)="crearItem()" class="container-fluid" enctype="multipart/form-data">
+    <div class="row">
+      <!-- Columna 1: Imagen -->
+      <div class="col-md-3 mb-4 text-center">
+        <label class="form-label">📷 Imagen de portada</label>
+        <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" class="form-control mb-2" />
+        
+        <div *ngIf="imagenPreview" class="d-flex flex-column align-items-center mt-3">
+          <img [src]="imagenPreview" class="img-preview mb-2 d-block mx-auto" alt="Vista previa" />
+          <button *ngIf="imagenPreview" type="button" class="btn btn-sm btn-outline-danger" (click)="quitarImagen()">❌ Eliminar</button>
+        </div>
+      </div>
+
+      <!-- Columna 2: Campos del formulario -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">📚 Título</label>
+          <input type="text" class="form-control" id="titulo" [(ngModel)]="item.titulo" name="titulo" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="ubicacion" class="form-label">📍 Ubicación</label>
+          <input type="text" class="form-control" id="ubicacion" [(ngModel)]="item.ubicacion" name="ubicacion" />
+        </div>
+
+        <div class="mb-3">
+          <label for="tipo" class="form-label">📁 Tipo</label>
+          <select class="form-select" id="tipo" [(ngModel)]="item.tipoId" name="tipo" (change)="cargarFormatos()" required>
+            <option [ngValue]="null" disabled>-- Seleccione un tipo --</option>
+            <option *ngFor="let tipo of tipos" [ngValue]="tipo.id">{{ tipo.nombre }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="formato" class="form-label">💿 Formato</label>
+          <select class="form-select" id="formato" [(ngModel)]="item.formato" name="formato" required>
+            <option value="" disabled selected>-- Selecciona un formato --</option>
+            <option *ngFor="let formato of formatosDisponibles" [value]="formato">{{ formato }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Columna 3: Botones -->
+      <div class="col-md-3 d-flex flex-column justify-content-center align-items-stretch gap-3 mt-3">
+        <button type="submit" class="btn btn-success btn-lg w-100" [disabled]="cargando">✅ Crear Nuevo</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg w-100" routerLink="/listaitems">← Atrás</button>
+      </div>
+    </div>
+  </form>
+
+<!-- Modal de Confirmación de Creación -->
+<div class="modal fade" id="itemCreadoModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content shadow-lg border-0 fs-5">
+      <div class="modal-header bg-success text-white">
+        <h4 class="modal-title fw-bold">✅ Artículo creado con éxito</h4>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+          aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body px-4 py-3">
+        <p class="mb-4">El artículo se registró correctamente con los siguientes datos:</p>
+        <div *ngIf="itemCreado?.urlImagen" class="text-center mb-4">
+          <img [src]="itemCreado.urlImagen" alt="Portada subida" class="img-fluid rounded shadow" style="max-height: 250px;" />
+        </div>
+        
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">📚 Título:</span>
+            <span>{{ itemCreado?.titulo }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">📁 Tipo:</span>
+            <span>{{ itemCreado?.tipo }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">📍 Ubicación:</span>
+            <span>{{ itemCreado?.ubicacion }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">💿 Formato:</span>
+            <span>{{ itemCreado?.formato }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer px-4 py-3">
+        <button class="btn btn-primary btn-lg px-4" data-bs-dismiss="modal" (click)="resetearFormulario()">
+          Aceptar
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+

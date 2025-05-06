@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+  }
+  
+  .table {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .table th {
+    font-weight: 600;
+  }
+  
+  .table td {
+    vertical-align: middle;
+  }
+  
+  .btn-danger {
+    font-weight: 600;
+    padding: 6px 14px;
+  }
+  
+  .btn-secondary {
+    font-weight: 600;
+  }
+  
+  .modal {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    border-radius: 12px;
+  }
+  
+  .modal-body {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .table {
+      font-size: 0.9rem;
+    }
+  
+    h2 {
+      font-size: 1.7rem;
+    }
+  }
+  
+  /* Tamaños de fuente generales */
+h2, h5 {
+  font-weight: 700;
+}
+
+table th, table td {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #343a40;
+  color: white;
+}
+
+.table td {
+  font-size: 1.1rem;
+}
+
+/* Botones */
+.btn-lg {
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-secondary:hover {
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Tabla */
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 1rem;
+  font-size: 1.1rem;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 1rem;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .modal-content {
+    font-size: 1rem;
+  }
+}

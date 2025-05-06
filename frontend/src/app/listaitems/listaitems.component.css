@@ -1,0 +1,62 @@
+/* Tamaño general más compacto */
+table.table {
+  font-size: 0.9rem;
+}
+
+.table th, .table td {
+  padding: 0.5rem;
+}
+
+.btn {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.75rem;
+  line-height: 1.2;
+}
+
+.btn-lg {
+  font-size: 1rem !important;
+  padding: 0.5rem 1rem !important;
+}
+
+/* Modal más pequeño */
+.modal-content {
+  font-size: 0.95rem;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+}
+
+/* Ajustes para pantalla pequeña */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .modal-content {
+    font-size: 0.9rem;
+  }
+
+  .modal-title {
+    font-size: 1rem;
+  }
+}
+
+.truncado {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pagination-sm .page-link {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}

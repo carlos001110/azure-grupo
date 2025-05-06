@@ -1,0 +1,76 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold text-primary display-4">📄 Préstamos Activos</h2>
+    <p class="text-muted fs-5">Visualizá y gestioná tus préstamos pendientes</p>
+  </div>
+
+  <!-- Sección de filtros -->
+  <div class="row g-3 mb-4 align-items-end">
+    <div class="col-md-4">
+      <input type="text" class="form-control" placeholder="Filtrar por persona" [(ngModel)]="personaFiltro">
+    </div>
+    <div class="col-md-3">
+      <label for="fechaDesde" class="form-label">Desde</label>
+      <input type="date" id="fechaDesde" class="form-control" [(ngModel)]="fechaDesde">
+    </div>
+    <div class="col-md-3">
+      <label for="fechaHasta" class="form-label">Hasta</label>
+      <input type="date" id="fechaHasta" class="form-control" [(ngModel)]="fechaHasta">
+    </div>
+    <div class="col-md-2 d-grid">
+      <button class="btn btn-primary" (click)="buscarPrestamos()">Buscar</button>
+    </div>
+  </div>
+
+  <!-- Tabla de préstamos activos -->
+  <div class="table-responsive shadow rounded overflow-hidden">
+    <table class="table table-bordered table-hover align-middle fs-5">
+      <thead class="table-dark text-white text-center fs-4">
+        <tr>
+          <th>👤 Persona</th>
+          <th>📅 Fecha Préstamo</th>
+          <th>📆 Devolución Prevista</th>
+          <th>🔧 Acción</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let prestamo of listaPrestamosActivos; trackBy: trackById">
+          <td class="fw-semibold">{{ prestamo.persona }}</td>
+          <td>{{ prestamo.fechaPrestamo | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ prestamo.fechaPrevistaDevolucion | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <button class="btn btn-outline-danger btn-lg px-4 fw-semibold" (click)="openModal(prestamo.id)">
+              🔁 Devolver
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botón Volver -->
+  <div class="text-center mt-5">
+    <button class="btn btn-outline-secondary btn-lg px-5 fw-bold" (click)="goBack()">
+      ← Volver al Inicio
+    </button>
+  </div>
+
+  <!-- Modal de Confirmación -->
+  <div class="modal fade show" tabindex="-1" [ngClass]="{ 'd-block': showModal }" *ngIf="showModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow-lg border-0 rounded-4">
+        <div class="modal-header bg-warning-subtle">
+          <h5 class="modal-title text-danger fs-4">⚠️ Confirmar devolución</h5>
+          <button type="button" class="btn-close" aria-label="Cerrar" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body fs-5">
+          <p class="mb-0">¿Estás seguro de que querés devolver este préstamo?</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary btn-lg px-4" (click)="closeModal()">Cancelar</button>
+          <button class="btn btn-danger btn-lg px-4" (click)="confirmarDevolucion()">Sí, devolver</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

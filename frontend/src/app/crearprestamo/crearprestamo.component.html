@@ -1,0 +1,115 @@
+<!-- Formulario -->
+<div class="container mt-5">
+  <h2 class="text-center text-primary mb-4">📄 Registrar Préstamo</h2>
+
+  <form #prestamoForm="ngForm" class="shadow p-4 bg-white rounded border border-2">
+    <div class="mb-3">
+      <label class="form-label fw-semibold">📚 Selecciona un artículo</label>
+      <select
+        class="form-select"
+        name="itemId"
+        required
+        [(ngModel)]="prestamo.itemId">
+        <option [ngValue]="0" disabled selected>-- Selecciona un ítem --</option>
+        <option *ngFor="let item of itemsDisponibles" [ngValue]="item.id">
+          {{ item.titulo }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-semibold">👤 Persona que lo recibe</label>
+      <input
+        type="text"
+        class="form-control"
+        name="persona"
+        [(ngModel)]="prestamo.persona"
+        placeholder="Nombre completo"
+        required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label fw-semibold">📅 Fecha de Devolución</label>
+      <input
+        type="date"
+        class="form-control"
+        name="fechaPrevistaDevolucion"
+        [(ngModel)]="prestamo.fechaPrevistaDevolucion"
+        required>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+      <button type="button" class="btn btn-success px-4" (click)="abrirModal()">Registrar Préstamo</button>
+      <button type="button" class="btn btn-outline-secondary px-4" (click)="goBack()">
+        ← Atrás
+      </button>      
+    </div>
+  </form>
+</div>
+
+<!-- Modal de Confirmación -->
+<div class="modal fade" id="confirmarModal" tabindex="-1" #confirmarModalElement>
+  <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- más ancho -->
+    <div class="modal-content border-0 shadow-lg fs-5"> <!-- fuente más grande -->
+      <div class="modal-header bg-success text-white">
+        <h4 class="modal-title fw-bold">✅ Confirmar Registro de Préstamo</h4>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body px-4 py-3">
+        <p class="mb-4">¿Estás seguro de que deseas registrar este préstamo?</p>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">📚 Artículo:</span>
+            <span>{{ nombreItemSeleccionado }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">👤 Persona:</span>
+            <span>{{ prestamo.persona }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">📅 Devolver el:</span>
+            <span>{{ prestamo.fechaPrevistaDevolucion | date:'dd/MM/yyyy' }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer px-4 py-3">
+        <button class="btn btn-outline-secondary btn-lg" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-success btn-lg px-4" (click)="confirmarRegistro()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de Éxito -->
+<div class="modal fade" id="exitoModal" tabindex="-1" #exitoModalElement>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow-lg fs-5">
+      <div class="modal-header bg-info text-white">
+        <h4 class="modal-title fw-bold">✅ Préstamo creado con éxito</h4>
+        <button type="button" class="btn-close btn-close-white" (click)="cerrarModalExito()" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body px-4 py-3">
+        <p class="mb-4">El préstamo fue registrado correctamente con los siguientes datos:</p>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">📚 Artículo:</span>
+            <span>{{ nombreItemSeleccionado }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">👤 Persona:</span>
+            <span>{{ prestamo.persona }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span class="fw-semibold text-secondary">📅 Devolver el:</span>
+            <span>{{ prestamo.fechaPrevistaDevolucion | date:'dd/MM/yyyy' }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer px-4 py-3">
+        <button class="btn btn-primary btn-lg px-4" data-bs-dismiss="modal" (click)="cerrarModalExito()">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

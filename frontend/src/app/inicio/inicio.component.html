@@ -1,0 +1,41 @@
+<div class="container-fluid py-5">
+  <h2 class="text-center text-primary fw-bold display-5 mb-4">📚 Colección Personal</h2>
+
+  <!-- Imagen de perfil -->
+  <div class="text-center mb-4">
+    <img src="iconoperfil.jpg" alt="imagen de perfil" class="rounded-circle" style="width: 150px; height: 150px;" />
+  </div>
+
+  <!-- Fila 1 -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-4 px-3">
+    <div class="col d-grid">
+      <button class="btn btn-outline-success btn-lg w-100" routerLink="/formularioitem">➕ Insertar Artículo</button>
+    </div>
+    <div class="col d-grid">
+      <button class="btn btn-outline-primary btn-lg w-100" routerLink="/crearprestamo">📥 Crear Préstamo</button>
+    </div>
+    <div class="col d-grid">
+      <button class="btn btn-outline-success btn-lg w-100" routerLink="/creartipo">🎨 Crear Tipo</button>
+    </div>
+  </div>
+
+  <!-- Fila 2 -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-4 px-3">
+    <div class="col d-grid">
+      <button class="btn btn-outline-info btn-lg w-100" routerLink="/listatipos">📋 Listar Tipos</button>
+    </div>
+    <div class="col d-grid">
+      <button class="btn btn-outline-dark btn-lg w-100" routerLink="/listaitems">📦 Lista de Ítems</button>
+    </div>
+    <div class="col d-grid">
+      <button class="btn btn-outline-warning btn-lg w-100" routerLink="/listaprestamos">🔍 Ver Préstamos Activos</button>
+    </div>
+  </div>
+
+  <!-- Fila 3: centrado -->
+  <div class="row justify-content-center px-3">
+    <div class="col-12 col-sm-8 col-md-4 d-grid">
+      <button class="btn btn-outline-secondary btn-lg w-100" routerLink="/listahistorial">📜 Ver Historial de Préstamos</button>
+    </div>
+  </div>
+</div>

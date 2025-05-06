@@ -1,0 +1,127 @@
+/* Contenedor principal */
+.container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+/* Título */
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #007bff;
+}
+
+/* Etiquetas de campo */
+.form-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs grandes */
+.form-control-lg {
+  font-size: 0.95rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+}
+
+/* Checkbox etiquetas */
+.form-check-label {
+  font-size: 0.95rem;
+}
+
+/* Botón volver */
+.btn-outline-secondary {
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Botón crear */
+.btn-success {
+  font-size: 1rem;
+  padding: 10px 22px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* ============================= */
+/* 🌐 Media Queries Responsivas */
+/* ============================= */
+
+/* PC grandes */
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  .form-label {
+    font-size: 0.95rem;
+  }
+
+  .btn-success,
+  .btn-outline-secondary {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+}
+
+/* Tablets y laptops medianas */
+@media (max-width: 991px) {
+  .container {
+    padding: 16px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .form-control-lg {
+    font-size: 0.9rem;
+    padding: 9px;
+  }
+
+  .btn-success,
+  .btn-outline-secondary {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 576px) {
+  .container {
+    padding: 12px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+  }
+
+  .form-control-lg {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .btn-success,
+  .btn-outline-secondary {
+    font-size: 0.8rem;
+    padding: 7px 14px;
+  }
+}

@@ -1,0 +1,20 @@
+.modal-content {
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    background-color: #f6a53b;
+    color: white;
+  }
+  
+  .btn-custom {
+    background-color: #f6a53b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .btn-custom:hover {
+    background-color: #e6952e;
+  }
+  
