@@ -1,3 +1,18 @@
+PARA EJECUTAR CON TEST
+mvn clean package
+
+// Si quieres desactivar
+set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+
+// SUBIR EL BACKEND
+ az webapp deploy --resource-group grupal --name backend-grupal --src-path target/final-grupo04-0.0.1-SNAPSHOT.jar --type jar
+
+// EJECUTAR FRONTEND ANGULAR 
+npm run build --prod
+
+y Ir a la carpeta dist que se tiene los archivos que se subirán al contenedor de azure
+
+
 Resumen de la implementación de Azure Computer Vision
 1. Creación del recurso en Azure
 Fuiste al portal de Azure.
